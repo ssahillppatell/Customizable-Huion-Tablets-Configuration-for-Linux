@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo chmod +x /usr/local/bin/graphic-tab-config
