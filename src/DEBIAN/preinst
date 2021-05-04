@@ -1,0 +1,16 @@
+installed() {
+    return $(dpkg-query -W -f '${Status}\n' "${1}" 2>&1|awk '/ok installed/{print 0;exit}{print 1}')
+}
+
+dependencies=('python3' 'python3-tk')
+
+for i in "${dependencies[@]}"
+do
+	if installed $i; then
+		echo $i installed
+	else
+		echo $i not installed
+		echo Installing...
+		sudo apt-get install $i
+	fi
+done

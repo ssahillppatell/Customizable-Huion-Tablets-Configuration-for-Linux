@@ -1,1 +1,2 @@
-graphic-tab-config.deb
+*.deb
+**/app.txt

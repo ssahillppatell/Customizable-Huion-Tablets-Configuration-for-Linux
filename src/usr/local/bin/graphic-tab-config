@@ -1,5 +1,3 @@
 #!/bin/bash
-echo "Hi"
-
 sudo chmod +x /usr/local/bin/graphic-tab-config
-python3 /usr/local/bin/gtc-pyscripts/app.py
+sudo python3 /usr/local/bin/gtc-pyscripts/app.py
