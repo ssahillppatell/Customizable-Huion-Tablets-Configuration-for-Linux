@@ -13,7 +13,7 @@ import subprocess
 model = input("Enter your model name: ")
 
 if os.path.exists(f"/usr/share/X11/xorg.conf.d/99-huion{model}.conf"):
-	out = subprocess.run(['bash', './listButtons.sh'], stdout=subprocess.PIPE)
+	out = subprocess.run(['bash', '/usr/local/bin/gtc-scripts/listButtons.sh'], stdout=subprocess.PIPE)
 	activeButtons = out.stdout.decode('utf-8').strip().split('\n')
 
 	newConfig = {}
@@ -30,7 +30,7 @@ if os.path.exists(f"/usr/share/X11/xorg.conf.d/99-huion{model}.conf"):
 	os.chmod('/home/pagal/.graphic-tab-config', 0o777)
 
 	print(args)
-	subprocess.run(['bash', './setButtons.sh', args])
+	subprocess.run(['bash', '/usr/local/bin/gtc-scripts/setButtons.sh', args])
 else:
 	with open(f"/usr/share/X11/xorg.conf.d/99-huion{model}.conf", "w") as fh:
 		fh.write(f'Section "InputClass"\n\tIdentifier "Huion tablets with Wacom driver"\n\tMatchUSBID "256c:006d*"\n\tMatchIsTablet "true"\n\tMatchDevicePath "/dev/input/event*"\n\tDriver "wacom"\nEndSection\n\t')

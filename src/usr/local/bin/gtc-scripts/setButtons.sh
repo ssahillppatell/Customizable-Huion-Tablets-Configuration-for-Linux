@@ -1,3 +1,4 @@
+#!/bin/bash
 args=("$@")
 
 for i in $args
